@@ -9,6 +9,7 @@ namespace Wordle_Tool
     public partial class PracticePage : Form
     {
         static Label[,] words;
+        static Dictionary<char, Label> keyboard = new Dictionary<char, Label>();
         PracticeGame game;
 
         public PracticePage()
@@ -46,6 +47,15 @@ namespace Wordle_Tool
 
                 y += 55;
                 x = 50;
+            }
+
+            for (int i = 0; i < 26; i++)
+            {
+                Label l = new Label();
+                char letter = (char)i+97;
+                l.Text = letter;
+
+                keyboard.Add(letter, l);
             }
 
             game = new PracticeGame(ref words);
