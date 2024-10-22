@@ -98,6 +98,13 @@ namespace Wordle_Tool
             
             form.Controls.Add(entryBox);
             form.Controls.Add(acceptEntryButton);
+
+            acceptEntryButton.Click += AcceptEntryButton_Click;
+        }
+
+        private void AcceptEntryButton_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 
