@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http.Headers;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Wordle_Tool
@@ -10,6 +12,7 @@ namespace Wordle_Tool
     {
         static Label[,] words;
         SolveWordle solve;
+        TextBox customWordTextBox;
 
         public SolverPage()
         {
@@ -88,15 +91,14 @@ namespace Wordle_Tool
             form.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             form.Show();
 
-            TextBox entryBox = new TextBox();
             Button acceptEntryButton = new Button();
+            customWordTextBox = new TextBox();
 
-            entryBox.Location = new Point(10, 10);
+            customWordTextBox.Location = new Point(10, 10);
             acceptEntryButton.Location = new Point(130, 10);
             acceptEntryButton.BackColor = Color.White;
             acceptEntryButton.Text = "Enter";
-            
-            form.Controls.Add(entryBox);
+            form.Controls.Add(customWordTextBox);
             form.Controls.Add(acceptEntryButton);
 
             acceptEntryButton.Click += AcceptEntryButton_Click;
@@ -104,14 +106,15 @@ namespace Wordle_Tool
 
         private void AcceptEntryButton_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            SolveWordle.startWord = customWordTextBox.Text;
+            solve = new SolveWordle(ref words);
         }
     }
 
     public class SolveWordle
     {
         Label[,] words;
-        string startWord = "salet";
+        static public string startWord = "salet";
         int currentRow = 0;
         List<char> unusedLetters = "abcdefghijklmnopqrstuvwxyz".ToCharArray().ToList<char>();
         List<char> greyLetters = new List<char>();
