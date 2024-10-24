@@ -4,7 +4,9 @@ using System.Drawing;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Wordle_Tool
 {
@@ -106,8 +108,24 @@ namespace Wordle_Tool
 
         private void AcceptEntryButton_Click(object sender, EventArgs e)
         {
-            SolveWordle.startWord = customWordTextBox.Text;
-            solve = new SolveWordle(ref words);
+            string text = customWordTextBox.Text;
+            string textRegex = "^[a-zA-Z]+$";
+
+            if (Regex.IsMatch(text, textRegex) 
+                && text.Length == 5 
+                && WordLists.answersList.Contains(text) || WordLists.guessableList.Contains(text))
+            {
+                SolveWordle.startWord = text;
+                solve = new SolveWordle(ref words);
+            }
+            else
+            {
+                string message = "Custom word must be five letters long and a real word.";
+                string caption = "Error in input";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result;
+                result = MessageBox.Show(message, caption, buttons);
+            }
         }
     }
 
