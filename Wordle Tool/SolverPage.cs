@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Net.Http.Headers;
-using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Wordle_Tool
 {
@@ -111,8 +108,8 @@ namespace Wordle_Tool
             string text = customWordTextBox.Text;
             string textRegex = "^[a-zA-Z]+$";
 
-            if (Regex.IsMatch(text, textRegex) 
-                && text.Length == 5 
+            if (Regex.IsMatch(text, textRegex)
+                && text.Length == 5
                 && WordLists.answersList.Contains(text) || WordLists.guessableList.Contains(text))
             {
                 SolveWordle.startWord = text;
