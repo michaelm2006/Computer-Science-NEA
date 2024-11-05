@@ -114,6 +114,8 @@ namespace Wordle_Tool
             {
                 SolveWordle.startWord = text;
                 solve = new SolveWordle(ref words);
+
+                ((Button)sender).FindForm().Close();
             }
             else
             {
