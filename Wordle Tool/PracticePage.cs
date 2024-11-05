@@ -23,6 +23,10 @@ namespace Wordle_Tool
             BackButton.TabStop = false;
             words = new Label[6, 5];
 
+            const int keyboard_x = 400;
+            const int keyboard_y = 150;
+            const int keyboard_size = 20;
+
             int x = 50, y = 50;
 
             for (int i = 0; i < 6; i++)
@@ -49,14 +53,16 @@ namespace Wordle_Tool
                 x = 50;
             }
 
+            char[] letters = new char[] { 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm' };
+
             for (int i = 0; i < 26; i++)
             {
                 Label l = new Label();
-                char c = (char)(i + 97);
+                char c = letters[i];
 
                 l.Text = c.ToString();
                 //l.Location = new Point(330 + 30 * i, 100);
-                l.Size = new Size(20, 20);
+                l.Size = new Size(keyboard_size, keyboard_size);
                 l.BackColor = WordleColours.KeyboardDefault;
                 l.Font = new Font("Arial", 10, FontStyle.Bold);
                 l.ForeColor = Color.White;
@@ -64,15 +70,15 @@ namespace Wordle_Tool
 
                 if (i < 10)
                 {
-                    l.Location = new Point(330 + 30 * i, 100);
+                    l.Location = new Point(keyboard_x + 30 * i, keyboard_y);
                 }
-                else if (i < 20)
+                else if (i < 19)
                 {
-                    l.Location = new Point(330 + 30 * (i - 10), 130);
+                    l.Location = new Point(keyboard_x + 15 + 30 * (i - 10), keyboard_y + 30);
                 }
                 else
                 {
-                    l.Location = new Point(330 + 30 * (i - 20), 160);
+                    l.Location = new Point(keyboard_x + 75 + 30 * (i - 20), keyboard_y + 60);
                 }
 
                 keyboard.Add(c, l);
