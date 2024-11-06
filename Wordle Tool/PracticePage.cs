@@ -8,9 +8,9 @@ namespace Wordle_Tool
 {
     public partial class PracticePage : Form
     {
-        static Label[,] words;
-        static Dictionary<char, Label> keyboard = new Dictionary<char, Label>();
-        PracticeGame game;
+        private static Label[,] words;
+        private static Dictionary<char, Label> keyboard = new Dictionary<char, Label>();
+        private PracticeGame game;
 
         public PracticePage()
         {
@@ -131,7 +131,7 @@ namespace Wordle_Tool
         private int currentLine = 0;
         private int nextCharIndex = 0;
 
-        private string solution;
+        public string solution;
         Label[,] words;
         Dictionary<char, Label> keyboard;
 
@@ -250,34 +250,13 @@ namespace Wordle_Tool
 
         private void EndOfGame(bool won)
         {
-            //Panel winPanel = new Panel();
-            //winPanel.Location = new Point(330, 230);
-            //winPanel.Size = new Size(300, 200);
-            //winPanel.BackColor = Color.FromArgb(10, 10, 10, 255);
-            //winPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-
-            //Forms.PracticePage.Controls.Add(winPanel);
-            //winPanel.Show();
-
-            //Label l = new Label();
-            //l.Location = new Point(10, 10);
-            //l.ForeColor = Color.White;
-            //l.AutoSize = true;
-            //if (won)
-            //{
-            //    l.Text = $"Game Complete!\nThe word was {solution}.\nYou guessed it in {currentLine+1} tries.";
-            //}
-            //else
-            //{
-            //    l.Text = $"The word was {solution}.";
-            //}
-
-            //winPanel.Controls.Add(l);
+            DialogResult result;
+            result = MessageBox.Show($"You guessed the answer in {GetWordsUsed()} tries!", "Game complete", MessageBoxButtons.OK);
         }
 
         public int GetWordsUsed()
         {
-            return currentLine;
+            return currentLine+1;
         }
 
         public void RemoveCharacter()
