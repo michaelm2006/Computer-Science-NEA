@@ -23,9 +23,10 @@ namespace Wordle_Tool
             BackButton.TabStop = false;
             words = new Label[6, 5];
 
-            const int keyboard_x = 400;
+            const int keyboard_x = 340;
             const int keyboard_y = 150;
-            const int keyboard_size = 20;
+            const int keyboard_size = 30;
+            const int keyboard_gap = 35;
 
             int x = 50, y = 50;
 
@@ -61,24 +62,23 @@ namespace Wordle_Tool
                 char c = letters[i];
 
                 l.Text = c.ToString();
-                //l.Location = new Point(330 + 30 * i, 100);
                 l.Size = new Size(keyboard_size, keyboard_size);
                 l.BackColor = WordleColours.KeyboardDefault;
-                l.Font = new Font("Arial", 10, FontStyle.Bold);
+                l.Font = new Font("Arial", 15, FontStyle.Bold);
                 l.ForeColor = Color.White;
                 l.BorderStyle = BorderStyle.FixedSingle;
 
                 if (i < 10)
                 {
-                    l.Location = new Point(keyboard_x + 30 * i, keyboard_y);
+                    l.Location = new Point(keyboard_x + keyboard_gap * i, keyboard_y);
                 }
                 else if (i < 19)
                 {
-                    l.Location = new Point(keyboard_x + 15 + 30 * (i - 10), keyboard_y + 30);
+                    l.Location = new Point(keyboard_x + 15 + keyboard_gap * (i - 10), keyboard_y + keyboard_gap);
                 }
                 else
                 {
-                    l.Location = new Point(keyboard_x + 75 + 30 * (i - 20), keyboard_y + 60);
+                    l.Location = new Point(keyboard_x + 85 + keyboard_gap * (i - 20), keyboard_y + keyboard_gap * 2);
                 }
 
                 keyboard.Add(c, l);
@@ -256,7 +256,7 @@ namespace Wordle_Tool
 
         public int GetWordsUsed()
         {
-            return currentLine+1;
+            return currentLine + 1;
         }
 
         public void RemoveCharacter()
