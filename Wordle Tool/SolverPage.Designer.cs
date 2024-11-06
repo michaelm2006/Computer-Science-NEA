@@ -46,7 +46,7 @@
             // 
             // NextWordButton
             // 
-            this.NextWordButton.Location = new System.Drawing.Point(68, 409);
+            this.NextWordButton.Location = new System.Drawing.Point(55, 409);
             this.NextWordButton.Margin = new System.Windows.Forms.Padding(2);
             this.NextWordButton.Name = "NextWordButton";
             this.NextWordButton.Size = new System.Drawing.Size(107, 19);
@@ -57,7 +57,7 @@
             // 
             // ResetSolverButton
             // 
-            this.ResetSolverButton.Location = new System.Drawing.Point(197, 409);
+            this.ResetSolverButton.Location = new System.Drawing.Point(209, 409);
             this.ResetSolverButton.Margin = new System.Windows.Forms.Padding(2);
             this.ResetSolverButton.Name = "ResetSolverButton";
             this.ResetSolverButton.Size = new System.Drawing.Size(107, 19);
@@ -68,7 +68,7 @@
             // 
             // startingWordButton
             // 
-            this.startingWordButton.Location = new System.Drawing.Point(279, 12);
+            this.startingWordButton.Location = new System.Drawing.Point(263, 12);
             this.startingWordButton.Name = "startingWordButton";
             this.startingWordButton.Size = new System.Drawing.Size(98, 23);
             this.startingWordButton.TabIndex = 3;
@@ -81,7 +81,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(407, 450);
+            this.ClientSize = new System.Drawing.Size(373, 440);
             this.Controls.Add(this.startingWordButton);
             this.Controls.Add(this.ResetSolverButton);
             this.Controls.Add(this.NextWordButton);
