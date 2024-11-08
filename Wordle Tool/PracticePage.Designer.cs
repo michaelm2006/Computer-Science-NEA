@@ -57,7 +57,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(19)))));
-            this.ClientSize = new System.Drawing.Size(766, 450);
+            this.ClientSize = new System.Drawing.Size(712, 450);
             this.Controls.Add(this.resetGameButton);
             this.Controls.Add(this.BackButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

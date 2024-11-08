@@ -228,11 +228,18 @@ namespace Wordle_Tool
                 {
                     case 0:
                         words[currentLine, i].BackColor = WordleColours.grey;
-                        keyboard[words[currentLine, i].Text.ToLower()[0]].BackColor = WordleColours.keyboardNotValid;
+                        if (keyboard[words[currentLine, i].Text.ToLower()[0]].BackColor == WordleColours.KeyboardDefault)
+                        {
+                            keyboard[words[currentLine, i].Text.ToLower()[0]].BackColor = WordleColours.keyboardNotValid;
+                        }
                         break;
                     case 1:
                         words[currentLine, i].BackColor = WordleColours.yellow;
-                        keyboard[words[currentLine, i].Text.ToLower()[0]].BackColor = WordleColours.yellow;
+
+                        if (keyboard[words[currentLine, i].Text.ToLower()[0]].BackColor == WordleColours.KeyboardDefault)
+                        {
+                            keyboard[words[currentLine, i].Text.ToLower()[0]].BackColor = WordleColours.yellow;
+                        }
                         break;
                     case 2:
                         words[currentLine, i].BackColor = WordleColours.green;
