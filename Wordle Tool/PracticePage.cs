@@ -189,18 +189,11 @@ namespace Wordle_Tool
         private int[] CompareToSolution(string word)
         {
             int[] ints = new int[5];
-            Dictionary<char, int> keyCount = new Dictionary<char, int>();
+            List<char> chars = new List<char>();
 
-            foreach (char c in solution)
+            foreach (char c in word)
             {
-                if (!keyCount.ContainsKey(c))
-                {
-                    keyCount.Add(c, 0);
-                }
-                else
-                {
-                    keyCount[c]++;
-                }
+                chars.Add(c);
             }
 
             for (int i = 0; i < 5; i++)
@@ -208,39 +201,18 @@ namespace Wordle_Tool
                 if (word[i] == solution[i])
                 {
                     ints[i] = 2;
+                    chars.Remove(word[i]);
                 }
-            }
-
-            for (int i = 0; i < 5; i++)
-            {
-                if (solution.Contains(word[i]) && keyCount[word[i]] >= 1)
+                else if (solution.Contains(word[i]) & !chars.Contains(word[i]))
                 {
                     ints[i] = 1;
-                    keyCount[word[i]]--;
+                    chars.Remove(word[i]);
                 }
-                else if (word[i] != solution[i])
+                else
                 {
                     ints[i] = 0;
                 }
             }
-
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    if (word[i] == solution[i])
-            //    {
-            //        ints[i] = 2;
-            //        chars.Remove(word[i]);
-            //    }
-            //    else if (solution.Contains(word[i]) & !chars.Contains(word[i]))
-            //    {
-            //        ints[i] = 1;
-            //        chars.Remove(word[i]);
-            //    }
-            //    else
-            //    {
-            //        ints[i] = 0;
-            //    }
-            //}
 
             return ints;
         }
