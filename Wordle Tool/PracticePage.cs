@@ -203,6 +203,14 @@ namespace Wordle_Tool
                     ints[i] = 2;
                     chars.Remove(word[i]);
                 }
+            }
+
+            for (int i = 0; i < 5; i++)
+            {
+                // not sure what to do with this
+                if (word[i] == solution[i])
+                {
+                }
                 else if (solution.Contains(word[i]) & chars.Contains(word[i]))
                 {
                     ints[i] = 1;
