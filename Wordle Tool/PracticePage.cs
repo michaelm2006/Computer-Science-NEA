@@ -208,7 +208,6 @@ namespace Wordle_Tool
                 if (word[i] == solution[i])
                 {
                     ints[i] = 2;
-                    keyCount[word[i]]--;
                 }
             }
 
@@ -219,7 +218,7 @@ namespace Wordle_Tool
                     ints[i] = 1;
                     keyCount[word[i]]--;
                 }
-                else
+                else if (word[i] != solution[i])
                 {
                     ints[i] = 0;
                 }
