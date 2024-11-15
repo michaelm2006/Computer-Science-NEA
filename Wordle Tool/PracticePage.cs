@@ -191,7 +191,7 @@ namespace Wordle_Tool
             int[] ints = new int[5];
             List<char> chars = new List<char>();
 
-            foreach (char c in word)
+            foreach (char c in solution)
             {
                 chars.Add(c);
             }
@@ -203,7 +203,7 @@ namespace Wordle_Tool
                     ints[i] = 2;
                     chars.Remove(word[i]);
                 }
-                else if (solution.Contains(word[i]) & !chars.Contains(word[i]))
+                else if (solution.Contains(word[i]) & chars.Contains(word[i]))
                 {
                     ints[i] = 1;
                     chars.Remove(word[i]);
