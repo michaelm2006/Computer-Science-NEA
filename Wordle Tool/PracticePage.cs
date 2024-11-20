@@ -195,7 +195,8 @@ namespace Wordle_Tool
             {
                 chars.Add(c);
             }
-
+            
+            // check for green before the other colours as otherwise it may display a yellow and a green sometimes
             for (int i = 0; i < 5; i++)
             {
                 if (word[i] == solution[i])

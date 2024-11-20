@@ -325,6 +325,7 @@ namespace Wordle_Tool
 
             int bestScore = 0;
             string bestWord = "";
+	        List<char> checkedChars = new List<char>();
 
             foreach (string s in possibleWords)
             {
@@ -332,9 +333,10 @@ namespace Wordle_Tool
 
                 foreach (char c in s)
                 {
-                    if (letterCount.ContainsKey(c))
+                    if (letterCount.ContainsKey(c) && !checkedChars.Contains(c))
                     {
                         currentScore += letterCount[c];
+			            checkedChars.Add(c);
                     }
                 }
 
