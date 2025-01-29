@@ -130,6 +130,7 @@ namespace Wordle_Tool
     {
         private int currentLine = 0;
         private int nextCharIndex = 0;
+        bool done = false;
 
         public string solution;
         Label[,] words;
@@ -162,7 +163,7 @@ namespace Wordle_Tool
 
         public void AddCharacter(char c)
         {
-            if (nextCharIndex < 5 && currentLine <= 5)
+            if (nextCharIndex < 5 && currentLine <= 5 && done == false)
             {
                 words[currentLine, nextCharIndex].Text = c.ToString();
                 nextCharIndex++;
@@ -259,12 +260,13 @@ namespace Wordle_Tool
 
             if (numberOfGreen == 5)
             {
-                EndOfGame(true);
+                EndOfGame();
             }
         }
 
-        private void EndOfGame(bool won)
+        private void EndOfGame()
         {
+            done = true;
             DialogResult result;
             result = MessageBox.Show($"You guessed the answer in {GetWordsUsed()} tries!", "Game complete", MessageBoxButtons.OK);
         }
