@@ -182,7 +182,7 @@ namespace Wordle_Tool
         }
 
         public void LetterClicked(Label l)
-        {
+        {       
             if (l.BackColor == WordleColours.grey)
             {
                 l.BackColor = WordleColours.yellow;
@@ -242,9 +242,7 @@ namespace Wordle_Tool
                 CollectYellowLetters(currentRow);
                 CollectGreyLetters(currentRow);
 
-
                 RemoveImpossibleWordsFromWordList();
-
 
                 currentRow++;
                 SetRow(BestNextWord(), currentRow);
@@ -325,15 +323,16 @@ namespace Wordle_Tool
 
             int bestScore = 0;
             string bestWord = "";
-	        List<char> checkedChars = new List<char>();
+	        List<char> checkedChars;
 
             foreach (string s in possibleWords)
             {
                 int currentScore = 0;
+                checkedChars = new List<char>();
 
                 foreach (char c in s)
                 {
-                    if (letterCount.ContainsKey(c) && !checkedChars.Contains(c))
+                    if (letterCount.ContainsKey(c)&& !checkedChars.Contains(c))
                     {
                         currentScore += letterCount[c];
 			            checkedChars.Add(c);
