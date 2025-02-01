@@ -22,21 +22,6 @@ namespace Wordle_Tool
 
         public static List<string> answersList = answers.ToList<string>();
         public static List<string> guessableList = guessable.ToList<string>();
-
-        public static List<string> a = new List<string>();
-        public static List<string> b = new List<string>();
-
-        static public List<string> GetAllWordsList()
-        {
-            List<string> newList = answersList;
-
-            foreach (string s in guessableList)
-            {
-                newList.Add(s);
-            }
-
-            return newList;
-        }
     }
 
     public static class WordleColours
