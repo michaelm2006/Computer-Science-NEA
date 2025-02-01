@@ -332,7 +332,7 @@ namespace Wordle_Tool
 
                 foreach (char c in s)
                 {
-                    if (letterCount.ContainsKey(c)&& !checkedChars.Contains(c))
+                    if (letterCount.ContainsKey(c) && !checkedChars.Contains(c))
                     {
                         currentScore += letterCount[c];
 			            checkedChars.Add(c);
@@ -346,8 +346,11 @@ namespace Wordle_Tool
                 }
             }
 
+            // dont think this changes anything but keeping just in case
             if (possibleWords.Count == 1)
                 return possibleWords.First();
+
+            possibleWords.Remove(bestWord);
 
             return bestWord;
         }
